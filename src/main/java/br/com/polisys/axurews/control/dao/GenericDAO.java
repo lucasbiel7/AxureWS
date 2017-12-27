@@ -28,12 +28,14 @@ public class GenericDAO<Entity extends Tabela> implements IGenericDAO<Entity>{
 
     protected Conexao conexao;
     protected Class<Entity> superClass;
+    private Entity entity;
    
     public GenericDAO() {
         conexao=new Conexao();
         Type[] types=((ParameterizedType)getClass().getGenericSuperclass()).getActualTypeArguments();
         if(types.length>0){
             superClass=(Class<Entity>) ((ParameterizedType)getClass().getGenericSuperclass()).getActualTypeArguments()[0];
+            entity=novaInstancia();
         }
     }
     
@@ -41,7 +43,7 @@ public class GenericDAO<Entity extends Tabela> implements IGenericDAO<Entity>{
     @Override
     public List<Entity> pegarTodos() throws SQLException{
         conexao.abrirConexao();
-        ResultSet set=conexao.query().executeQuery("select * from usuario");
+        ResultSet set=conexao.query().executeQuery("select * from "+entity.getTabelaNome());
         List<Entity> objetos=new ArrayList<>();
         while(set.next()){
             try {
@@ -58,7 +60,6 @@ public class GenericDAO<Entity extends Tabela> implements IGenericDAO<Entity>{
             
         }
         conexao.fecharConexao();
-        System.out.println(objetos.size());
         return objetos;
     }
 
@@ -77,6 +78,15 @@ public class GenericDAO<Entity extends Tabela> implements IGenericDAO<Entity>{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
-    
+    private Entity novaInstancia(){
+        if(superClass!=null){
+            try {
+                return superClass.newInstance();
+            } catch (InstantiationException | IllegalAccessException ex) {
+                Logger.getLogger(GenericDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return null;
+    }
     
 }

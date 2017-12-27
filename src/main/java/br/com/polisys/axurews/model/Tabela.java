@@ -5,6 +5,7 @@
  */
 package br.com.polisys.axurews.model;
 
+import com.google.gson.annotations.Expose;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -17,7 +18,9 @@ import java.util.List;
  */
 public class Tabela {
     
+    @Expose( serialize = false,deserialize = false)
     private String tabelaNome;
+    @Expose( serialize = false,deserialize = false)
     private List<String> campos;
 
     public Tabela(String tabelaNome) {
