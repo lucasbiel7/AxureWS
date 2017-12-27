@@ -5,12 +5,8 @@
  */
 package br.com.polisys.axurews.control.rest;
 
-import br.com.polisys.axurews.control.Conexao;
-import br.com.polisys.axurews.control.dao.GenericDAO;
 import br.com.polisys.axurews.control.dao.UsuarioDAO;
 import br.com.polisys.axurews.model.Database;
-import br.com.polisys.axurews.model.entidades.Usuario;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;

@@ -18,10 +18,8 @@ import java.util.List;
  */
 public class Tabela {
     
-    @Expose( serialize = false,deserialize = false)
-    private String tabelaNome;
-    @Expose( serialize = false,deserialize = false)
-    private List<String> campos;
+    private transient String tabelaNome;
+    private transient List<String> campos;
 
     public Tabela(String tabelaNome) {
         this.tabelaNome = tabelaNome;
