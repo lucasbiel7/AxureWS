@@ -3,17 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.polisys.axurews.model;
+package br.com.polisys.axurews.control.dao;
 
-import java.sql.SQLException;
+import br.com.polisys.axurews.model.entidades.Usuario;
 
 /**
  *
  * @author POLISYS
  */
-public interface IConexao {
- 
-    public abstract void abrirConexao() throws SQLException;
-    public abstract void fecharConexao() throws SQLException;
+public class UsuarioDAO extends GenericDAO<Usuario>{
     
 }

@@ -12,7 +12,7 @@ import javax.ws.rs.core.Application;
  *
  * @author POLISYS
  */
-@javax.ws.rs.ApplicationPath("webresources")
+@javax.ws.rs.ApplicationPath("rest")
 public class ApplicationConfig extends Application {
 
     @Override
@@ -29,7 +29,7 @@ public class ApplicationConfig extends Application {
      * If required, comment out calling this method in getClasses().
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
-        resources.add(br.com.polisys.axurews.control.rest.Rest.class);
+        resources.add(br.com.polisys.axurews.control.rest.Generic.class);
     }
     
 }

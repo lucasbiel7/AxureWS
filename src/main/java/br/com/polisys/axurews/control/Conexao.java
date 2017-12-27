@@ -6,10 +6,10 @@
 package br.com.polisys.axurews.control;
 
 import br.com.polisys.axurews.model.Database;
-import br.com.polisys.axurews.model.IConexao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -40,6 +40,10 @@ public class Conexao implements IConexao {
         connection = DriverManager.getConnection(Database.getUrlConexao(), Database.USERNAME, Database.PASSWORD);
     }
 
+    public Statement query() throws SQLException{
+        return connection.createStatement();
+    }
+    
     @Override
     public void fecharConexao() throws SQLException {
         if (connection != null) {

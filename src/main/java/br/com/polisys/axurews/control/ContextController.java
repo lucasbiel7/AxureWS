@@ -5,9 +5,6 @@
  */
 package br.com.polisys.axurews.control;
 
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 

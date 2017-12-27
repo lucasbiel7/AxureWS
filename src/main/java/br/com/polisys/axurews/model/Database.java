@@ -39,6 +39,6 @@ public class Database {
     }
     
     public static String getUrlConexao(){
-        return "jdbc:"+SGBD+"://"+HOST+"/"+DATABASE;
+        return "jdbc:"+SGBD+"://"+HOST+"/"+DATABASE+"?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
     }
 }
