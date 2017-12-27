@@ -5,7 +5,6 @@
  */
 package br.com.polisys.axurews.model;
 
-import com.google.gson.annotations.Expose;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
